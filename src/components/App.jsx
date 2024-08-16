@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../redux/operation';
-import { getError, getIsLoading, getContacts } from '../redux/selectors';
+import { getIsLoading, getContacts } from '../redux/selectors';
 import ContactForm from '../components/ContactForm/ContactForm';
 import ContactList from '../components/ContactList/ContactList';
 import FilterForm from '../components/FilterForm/FilterForm';
@@ -10,7 +10,7 @@ import { Circles } from 'react-loader-spinner';
 const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+
   const contacts = useSelector(getContacts); // Asigură-te că datele sunt corect preluate
 
   useEffect(() => {
