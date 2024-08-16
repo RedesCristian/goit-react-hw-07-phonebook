@@ -1,10 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
-import './index.css';
+import { createRoot } from 'react-dom/client'; // Corect importul
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import App from '../src/components/App';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+// Selectează elementul root din DOM
+const container = document.getElementById('root');
+
+// Creează root-ul folosind `createRoot`
+const root = createRoot(container);
+
+// Folosește `root.render` pentru a renderiza aplicația
+root.render(
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
